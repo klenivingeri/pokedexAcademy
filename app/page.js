@@ -28,8 +28,6 @@ const records = [
     title: "Cadeira Extensora (Máquina)",
     image: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
-      "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
-      "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
     video: ["zottydOvmMw"],
     description:

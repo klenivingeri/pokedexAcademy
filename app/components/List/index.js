@@ -1,15 +1,9 @@
 import { useState } from "react";
 import { IconVideo } from "../icons/IconVideo";
 import { Modal } from "../Modal";
+import { Carrossel } from "../Carrossel";
+import { BgImage } from "../BgImage";
 
-const BgImage = ({ image, size = "w-12 h-12" }) => {
-  return (
-    <div
-      className={`${size} bg-center bg-cover rounded-md flex justify-end items-end`}
-      style={{ backgroundImage: `url(${image})` }}
-    ></div>
-  );
-};
 
 const ContentModal = ({
   image,
@@ -27,7 +21,7 @@ const ContentModal = ({
   return (
     <div>
       {isImage ? (
-        <BgImage image={image[0]} size="w-full h-[200px]" />
+        <Carrossel images={image} />
       ) : (
         <iframe
           src={`https://www.youtube.com/embed/${video}`}
