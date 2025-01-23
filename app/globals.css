@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body, input, textarea, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+.static-router-icon {
+  display: none !important;
+}
