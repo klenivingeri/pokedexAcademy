@@ -11,8 +11,8 @@ import { SideBar } from "./components/SideBar";
 
 const _records = [
   {
-    title: "Agachamento (Barra)",
-    image: [
+    name: "Agachamento (Barra)",
+    images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -25,8 +25,8 @@ const _records = [
     kg: 11,
   },
   {
-    title: "Cadeira Extensora (Máquina)",
-    image: [
+    name: "Cadeira Extensora (Máquina)",
+    images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
     ],
     video: ["zottydOvmMw"],
@@ -37,8 +37,8 @@ const _records = [
     kg: 12,
   },
   {
-    title: "Cadeira Flexora (Máquina)",
-    image: [
+    name: "Cadeira Flexora (Máquina)",
+    images: [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -51,8 +51,8 @@ const _records = [
     kg: 13,
   },
   {
-    title: "Seated Cable Row - V Grip (Cable)",
-    image: [
+    name: "Seated Cable Row - V Grip (Cable)",
+    images: [
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
@@ -66,8 +66,8 @@ const _records = [
     kg: 14,
   },
   {
-    title: "Agachamento (Barra)",
-    image: [
+    name: "Agachamento (Barra)",
+    images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -80,8 +80,8 @@ const _records = [
     kg: 11,
   },
   {
-    title: "Cadeira Extensora (Máquina)",
-    image: [
+    name: "Cadeira Extensora (Máquina)",
+    images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -94,8 +94,8 @@ const _records = [
     kg: 12,
   },
   {
-    title: "Cadeira Flexora (Máquina)",
-    image: [
+    name: "Cadeira Flexora (Máquina)",
+    images: [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -108,8 +108,8 @@ const _records = [
     kg: 13,
   },
   {
-    title: "Seated Cable Row - V Grip (Cable)",
-    image: [
+    name: "Seated Cable Row - V Grip (Cable)",
+    images: [
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
@@ -142,10 +142,12 @@ export default function Listing() {
 
   useEffect(() => {
     const data = get('training')
-    setRecords(data)
-    console.log(data)
+    if(!!data) {
+      setRecords(data)
+    }
     setIsLoading(false)
   },[])
+
 
   return (
     <div className="flex flex-col h-screen">
@@ -180,7 +182,7 @@ export default function Listing() {
       >
         Bot-Flutuante
       </div>
-
+    
       <div className="flex-grow bg-gray-100 py-[60px] text-neutral-800">
         {isLoading ? (
           <div className="flex-grow  h-full flex justify-center items-center ">

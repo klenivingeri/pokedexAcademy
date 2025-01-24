@@ -6,7 +6,7 @@ import { BgImage } from "../BgImage";
 
 
 const ContentModal = ({
-  image,
+  images,
   repeat,
   muscle,
   kg,
@@ -21,7 +21,7 @@ const ContentModal = ({
   return (
     <div>
       {isImage ? (
-        <Carrossel images={image} />
+        <Carrossel images={images} />
       ) : (
         <iframe
           src={`https://www.youtube.com/embed/${video}`}
@@ -72,7 +72,7 @@ const ContentModal = ({
 };
 
 export const ListLine = (props) => {
-  const { title, image, repeat, muscle, kg } = props;
+  const { name, images, repeat, muscle, kg } = props;
   const [showModal, setShowModal] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const handlerModal = (isImage = true) => {
@@ -86,14 +86,14 @@ export const ListLine = (props) => {
         className="col-span-3 h-[100px] pt-2 pb-2 pl-2"
         onClick={handlerModal}
       >
-        <BgImage size="w-full h-full" image={image[0]} />
+        <BgImage size="w-full h-full" image={images[0]} />
       </div>
       <div className="col-span-7 p-2" onClick={handlerModal}>
         <div
           className="block w-full overflow-hidden text-ellipsis whitespace-nowrap"
           style={{ textOverflow: "ellipsis" }}
         >
-          <b>{title}</b>
+          <b>{name}</b>
         </div>
         <div className="text-sm">
           <b>Repetições:</b> {repeat}
@@ -112,7 +112,7 @@ export const ListLine = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={title} onClose={handlerModal}>
+        <Modal title={name} onClose={handlerModal}>
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}
@@ -121,7 +121,7 @@ export const ListLine = (props) => {
 };
 
 export const ListSquare = (props) => {
-  const { title, image, repeat, muscle, kg } = props;
+  const { name, images, repeat, muscle, kg } = props;
   const [showImage, setShowImage] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -133,7 +133,7 @@ export const ListSquare = (props) => {
   return (
     <div className="flex m-2 p-[8px] flex-col h-[245px] w-[175px] bg-white rounded-md shadow-sm ">
       <div className="w-full flex justify-center" onClick={handlerModal}>
-        <BgImage image={image[0]} size="w-[160px] h-[190px]" />
+        <BgImage image={images[0]} size="w-[160px] h-[190px]" />
       </div>
       <div className="flex items-center justify-between ">
         <div
@@ -144,7 +144,7 @@ export const ListSquare = (props) => {
             WebkitLineClamp: 2,
           }}
         >
-          <b>{title}</b>
+          <b>{name}</b>
         </div>
         <div onClick={() => handlerModal(false)}>
           <IconVideo />
@@ -152,7 +152,7 @@ export const ListSquare = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={title} onClose={handlerModal}>
+        <Modal title={name} onClose={handlerModal}>
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}

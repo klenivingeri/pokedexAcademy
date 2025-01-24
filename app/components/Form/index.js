@@ -69,7 +69,7 @@ const musculos = [
   "Transverso do abdômen",
 ];
 
-export const Input = ({ name, id, setText, placeholder }) => {
+export const Input = ({ name, id, setText, placeholder, value}) => {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
@@ -79,6 +79,34 @@ export const Input = ({ name, id, setText, placeholder }) => {
         onChange={(e) => setText(e.target.value)}
         type="text"
         id={id}
+        value={value}
+        name={id}
+        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+        placeholder={placeholder}
+      />
+    </div>
+  );
+};
+
+export const InputVideo = ({ name, id, setUrl, placeholder, value }) => {
+  const onChangeUrl = (url) => {
+    const match  = url.match(/^(?:[^\/]*\/){3}([^?]+)/)
+    if(!!match){
+      setUrl(match[1])
+    } else {
+      setUrl('')
+    }
+  }
+  return (
+    <div>
+      <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+        {name}
+      </label>
+      <input
+        onChange={(e) => onChangeUrl(e.target.value)}
+        type="text"
+        id={id}
+        value={value}
         name={id}
         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         placeholder={placeholder}
@@ -108,7 +136,7 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
           <div className="border rounded-sm p-1 flex-wrap flex flex-row gap-2">
             {images.reverse().map((url, i) => (
               <div key={i} className="shadow-sm " onClick={() => handleDeleteImage(url)}>
-                <BgImage image={url} Icon={IconCircleClose} showIcon func={handleDeleteImage}/>
+                <BgImage image={url} size={"w-16 h-16"} showIcon />
               </div>
             ))}
           </div>
@@ -139,7 +167,7 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
   );
 };
 
-export const Textarea = ({ name, id, setText, placeholder }) => {
+export const Textarea = ({ name, id, setText, placeholder, value }) => {
   return (
     <div>
       <label
@@ -152,6 +180,7 @@ export const Textarea = ({ name, id, setText, placeholder }) => {
         onChange={(e) => setText(e.target.value)}
         id={id}
         name={id}
+        value={value}
         rows="4"
         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         placeholder={placeholder}
@@ -217,9 +246,13 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
     </div>
   );
 };
-export const Form = ({ children }) => {
+export const Form = ({ children , createExercise}) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createExercise()
+  };
   return (
-    <form className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
+    <form  method="POST" className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
       {children}
       <div className="flex items-center">
         <input
@@ -236,6 +269,7 @@ export const Form = ({ children }) => {
       <button
         type="submit"
         className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        onClick={handleSubmit}
       >
         Cadastrar
       </button>
