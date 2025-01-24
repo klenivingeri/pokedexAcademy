@@ -30,7 +30,8 @@ export default function CreateExercise() {
   const [images, setImages]= useState([])
   const [video, setVideo]=useState('')
   const [description, setDescription]=useState('')
-  console.log(name)
+  const [muscles, setMuscles]=useState([])
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -47,7 +48,7 @@ export default function CreateExercise() {
           </div>
           <div className="w-full m-1">
             <div className="text-xl text-black">
-              <b>Codex Academy</b>
+              <b>Cadastrar exercício</b>
             </div>
           </div>
         </div>
@@ -77,7 +78,7 @@ export default function CreateExercise() {
       : ''}
               <Input name="Link do Video" id="video" setText={setVideo} placeholder="Cole o link de video"/>
               <Textarea name="Descrição do exercicio" id="description" setText={setDescription} placeholder="Digite uma descrição para o exercicio" />
-              <Select name="Seleciones os musculo(s)" id="video" setText={setVideo} />
+              <Select name="Seleciones os musculo(s)" id="select" muscles={muscles} setMuscles={setMuscles} />
             </div>
           </Form>
         </div>

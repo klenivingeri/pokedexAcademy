@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { IconCircleClose } from "../icons/IconCircleClose";
+import { BgImage } from "../BgImage";
+
 const musculos = [
   "Adutor curto",
   "Adutor longo",
@@ -63,14 +66,14 @@ const musculos = [
   "Trapézio (inferior)",
   "Trapézio (médio)",
   "Trapézio (superior)",
-  "Transverso do abdômen"
+  "Transverso do abdômen",
 ];
 
-export const Input = ({name, id, setText, placeholder}) => {
+export const Input = ({ name, id, setText, placeholder }) => {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
-      {name}
+        {name}
       </label>
       <input
         onChange={(e) => setText(e.target.value)}
@@ -84,48 +87,59 @@ export const Input = ({name, id, setText, placeholder}) => {
   );
 };
 
-export const InputImagem = ({name, id ,images, setImage, placeholder}) => {
-  const [img, setImg] = useState('')
-  
+export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
+  const [img, setImg] = useState("");
+
   const handleSaveImagem = () => {
-    if (img.trim() === "") return; // Não adiciona valores vazios
-    const updatedImages = [...images, img]; // Adiciona a nova imagem ao array existente
-    setImage(updatedImages); // Atualiza o estado com o array atualizado
-    setImg(""); // Limpa o input após salvar
+    if (img.trim() === "") return;
+    const updatedImages = [...images, img];
+    setImage(updatedImages);
+    setImg("");
+  };
+
+  const handleDeleteImage = (url) => {
+    const newArray = images.filter((image, i) => image !== url);
+    setImage(newArray);
   };
 
   return (
     <div>
-      <div className="flex flex-row gap-2">
-      {images?.reverse()
-      .map((url, i) => <div key={i} className="shadow-sm ">
-        <img
-          src={url}
-          alt={`Slide ${i}`}
-          className="w-[100] h-[100px] object-cover transition-transform duration-300 ease-in-out rounded-md"
-        />
-      </div>)}
-      </div>
+        {!!images.length && (
+          <div className="border rounded-sm p-1 flex-wrap flex flex-row gap-2">
+            {images.reverse().map((url, i) => (
+              <div key={i} className="shadow-sm " onClick={() => handleDeleteImage(url)}>
+                <BgImage image={url} Icon={IconCircleClose} showIcon func={handleDeleteImage}/>
+              </div>
+            ))}
+          </div>
+        )}
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
-      {name}
+        {name}
       </label>
-      <div className="flex flex-row">
-      <input
-        onChange={(e) => setImg(e.target.value)}
-        value={img || ""}
-        type="text"
-        id={id}
-        name={id}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-        placeholder={placeholder}
-      />
-       {images.length <= 2 && <a onClick={handleSaveImagem} className=" bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">save</a>}
+      <div className="flex flex-row items-center gap-2">
+        <input
+          onChange={(e) => setImg(e.target.value)}
+          value={img || ""}
+          type="text"
+          id={id}
+          name={id}
+          className="mt-1 block w-full  rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          placeholder={placeholder}
+        />
+        {images.length <= 2 && (
+          <a
+            onClick={handleSaveImagem}
+            className=" bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            save
+          </a>
+        )}
       </div>
     </div>
   );
 };
 
-export const Textarea = ({name, id, setText, placeholder}) => {
+export const Textarea = ({ name, id, setText, placeholder }) => {
   return (
     <div>
       <label
@@ -146,25 +160,63 @@ export const Textarea = ({name, id, setText, placeholder}) => {
   );
 };
 
+export const Select = ({ name, setMuscles, muscles, options }) => {
+  const [selected, setSelected] = useState([]);
+  const handleSaveSelected = () => {
+    const updatedMuscle = [...muscles, selected];
+    setMuscles(updatedMuscle);
+  };
 
-export const Select = ({name, selectedValue, handleSelectedChange , options}) => {
-  return (<div className="">
-          <label
+  const handleDeleteMuscle = (muscle) => {
+    const newArray = muscles.filter((_muscle, i) => _muscle !== muscle);
+    setMuscles(newArray);
+  };
+
+  return (
+    <div className="">
+      {!!muscles?.length && (
+        <div className="border rounded-sm p-1 flex flex-wrap">
+          {muscles.map((muscle, i) => (
+            <div
+              onClick={() => handleDeleteMuscle(muscle)}
+              key={i}
+              className="text-sm border rounded-md p-[2px] m-[2px] flex flex-row gap-2 items-center"
+            >
+              <div>{muscle}</div>
+              <div>
+                <IconCircleClose />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      <label
         htmlFor="message"
         className="block text-sm font-medium text-gray-700"
       >
-    {name}
-    <select
-    value={selectedValue}
-    onChange={handleSelectedChange}
-    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
-  >
-    {musculos.map((musculo,i) => <option key={i} value={musculo}>{musculo}</option>)}
-  </select>
-  </label>
-  </div>
-  )
-}
+        {name}
+        <div className="flex flex-row items-center gap-2">
+          <select
+            onChange={(e) => setSelected(e.target.value)}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          >
+            {musculos.map((musculo, i) => (
+              <option key={i} value={musculo}>
+                {musculo}
+              </option>
+            ))}
+          </select>
+          <a
+            onClick={handleSaveSelected}
+            className=" bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            save
+          </a>
+        </div>
+      </label>
+    </div>
+  );
+};
 export const Form = ({ children }) => {
   return (
     <form className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
