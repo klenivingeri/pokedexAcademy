@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
 import { MenuHamburger } from "./components/icons/MenuHamburger";
 import { IconList } from "./components/icons/IconList";
@@ -9,7 +9,7 @@ import { ListSquare, ListLine } from "./components/List";
 import { add, get } from "./utils/local-storage";
 import { SideBar } from "./components/SideBar";
 
-const records = [
+const _records = [
   {
     title: "Agachamento (Barra)",
     image: [
@@ -124,11 +124,11 @@ const records = [
   },
 ];
 
-export default function Help() {
-  const [isLoading, setIsLoading] = useState(false);
+export default function Listing() {
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedValue, setSelectedValue] = useState("");
   const [isSquare, setIsSquare] = useState(false);
-  //const [records, setRecords] = useState(get("training"));
+  const [records, setRecords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -139,6 +139,13 @@ export default function Help() {
   const handleSelectedChange = (event) => {
     setSelectedValue(event.target.value);
   };
+
+  useEffect(() => {
+    const data = get('training')
+    setRecords(data)
+    console.log(data)
+    setIsLoading(false)
+  },[])
 
   return (
     <div className="flex flex-col h-screen">

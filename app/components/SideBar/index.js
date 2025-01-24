@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconExport } from "../icons/IconExport";
 import { IconImport } from "../icons/IconImport";
+import { IconCreate } from "../icons/IconCreate";
 
 export const SideBar = ({toggleSidebar}) => (
   <div className="fixed inset-0 flex items-center justify-start bg-opacity-50 backdrop-blur-sm z-50">
@@ -16,7 +17,14 @@ export const SideBar = ({toggleSidebar}) => (
 
       <div className="flex h-full justify-between flex-col">
         <div className="p-4">
-          <div className="flex flex-col p-4 gap-6 ">
+          <div className="flex flex-col p-1 gap-5 ">
+          <Link
+              href="/"
+              className="text-black hover:text-blue-500 w-full text-left flex gap-2"
+            >
+              <IconExport />
+              Inicio
+            </Link>
             <Link
               href="/outra-pagina"
               className="text-black hover:text-blue-500 w-full text-left flex gap-2"
@@ -30,6 +38,20 @@ export const SideBar = ({toggleSidebar}) => (
             >
               <IconImport />
               Importar
+            </Link>
+            <Link
+              href="/create-exercise"
+              className="text-black hover:text-blue-500 w-full text-left flex gap-2 "
+            >
+              <IconCreate />
+              Criar exercicio
+            </Link>
+            <Link
+              href="/create-exercise"
+              className="text-black hover:text-blue-500 w-full text-left flex gap-2 "
+            >
+              <IconCreate />
+              Criar treinamento
             </Link>
           </div>
         </div>
