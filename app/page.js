@@ -11,13 +11,14 @@ import { SideBar } from "./components/SideBar";
 
 const _records = [
   {
+    uuid: '5cfc0350-86fd-428b-a70d-df477fd9137f',
     name: "Agachamento (Barra)",
     images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
-    video: ["lfDuKPC6rzg"],
+    video: "lfDuKPC6rzg",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker. o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 12,
@@ -25,11 +26,12 @@ const _records = [
     kg: 11,
   },
   {
+    uuid: '5cfc0350-86fd-428b-a70d-df477fd9137f',
     name: "Cadeira Extensora (Máquina)",
     images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 13,
@@ -37,13 +39,14 @@ const _records = [
     kg: 12,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Cadeira Flexora (Máquina)",
     images: [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 14,
@@ -51,6 +54,7 @@ const _records = [
     kg: 13,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Seated Cable Row - V Grip (Cable)",
     images: [
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -58,7 +62,7 @@ const _records = [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       ,
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 15,
@@ -66,13 +70,14 @@ const _records = [
     kg: 14,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Agachamento (Barra)",
     images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker. o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 12,
@@ -80,13 +85,14 @@ const _records = [
     kg: 11,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Cadeira Extensora (Máquina)",
     images: [
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 13,
@@ -94,13 +100,14 @@ const _records = [
     kg: 12,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Cadeira Flexora (Máquina)",
     images: [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 14,
@@ -108,6 +115,7 @@ const _records = [
     kg: 13,
   },
   {
+    uuid: '1e34b714-68e0-4e77-8132-85989e410a6a',
     name: "Seated Cable Row - V Grip (Cable)",
     images: [
       "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
@@ -115,7 +123,7 @@ const _records = [
       "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
       ,
     ],
-    video: ["zottydOvmMw"],
+    video: "zottydOvmMw",
     description:
       "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
     repeat: 15,
@@ -146,9 +154,10 @@ export default function Listing() {
       setRecords(data)
     }
     setIsLoading(false)
+    add('training', _records)
   },[])
 
-
+  
   return (
     <div className="flex flex-col h-screen">
       <div

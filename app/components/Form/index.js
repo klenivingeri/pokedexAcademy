@@ -81,7 +81,7 @@ export const Input = ({ name, id, setText, placeholder, value}) => {
         id={id}
         value={value}
         name={id}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+        className="mt-1 block w-full rounded-md border pl-1 h-[35px] border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         placeholder={placeholder}
       />
     </div>
@@ -94,7 +94,7 @@ export const InputVideo = ({ name, id, setUrl, placeholder, value }) => {
     if(!!match){
       setUrl(match[1])
     } else {
-      setUrl('')
+      setUrl(url)
     }
   }
   return (
@@ -108,7 +108,7 @@ export const InputVideo = ({ name, id, setUrl, placeholder, value }) => {
         id={id}
         value={value}
         name={id}
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+        className="border pl-1 h-[35px] mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         placeholder={placeholder}
       />
     </div>
@@ -120,7 +120,8 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
 
   const handleSaveImagem = () => {
     if (img.trim() === "") return;
-    const updatedImages = [...images, img];
+    const updatedImages = images;
+    updatedImages.push(img)
     setImage(updatedImages);
     setImg("");
   };
@@ -134,7 +135,7 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
     <div>
         {!!images.length && (
           <div className="border rounded-sm p-1 flex-wrap flex flex-row gap-2">
-            {images.reverse().map((url, i) => (
+            {images.map((url, i) => (
               <div key={i} className="shadow-sm " onClick={() => handleDeleteImage(url)}>
                 <BgImage image={url} size={"w-16 h-16"} showIcon />
               </div>
@@ -151,13 +152,13 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
           type="text"
           id={id}
           name={id}
-          className="mt-1 block w-full  rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          className="mt-1 block w-full border pl-1 h-[35px] rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
           placeholder={placeholder}
         />
         {images.length <= 2 && (
           <a
             onClick={handleSaveImagem}
-            className=" bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="bg-blue-600 h-[35px] flex items-center mt-1 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             save
           </a>
@@ -182,7 +183,7 @@ export const Textarea = ({ name, id, setText, placeholder, value }) => {
         name={id}
         value={value}
         rows="4"
-        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+        className="mt-1 block w-full rounded-md border pl-1  border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
         placeholder={placeholder}
       ></textarea>
     </div>
@@ -224,10 +225,10 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
         className="block text-sm font-medium text-gray-700"
       >
         {name}
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-row items-center gap-2 ">
           <select
             onChange={(e) => setSelected(e.target.value)}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md border pl-1 h-[35px] border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
           >
             {musculos.map((musculo, i) => (
               <option key={i} value={musculo}>
@@ -237,7 +238,7 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
           </select>
           <a
             onClick={handleSaveSelected}
-            className=" bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="bg-blue-600 text-white py-2 px-4 mt-1 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             save
           </a>
@@ -246,6 +247,7 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
     </div>
   );
 };
+
 export const Form = ({ children , createExercise}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -254,18 +256,6 @@ export const Form = ({ children , createExercise}) => {
   return (
     <form  method="POST" className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
       {children}
-      <div className="flex items-center">
-        <input
-          id="terms"
-          name="terms"
-          type="checkbox"
-          className="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-        />
-        <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-          Aceito os termos e condições
-        </label>
-      </div>
-
       <button
         type="submit"
         className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"

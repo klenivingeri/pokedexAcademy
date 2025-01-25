@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { MenuHamburger } from "../components/icons/MenuHamburger";
-import { SideBar } from "../components/SideBar";
+import { useState, useEffect, Suspense, use } from "react";
+import { MenuHamburger } from "../../components/icons/MenuHamburger";
+import { SideBar } from "../../components/SideBar";
 import {
   Form,
   Input,
@@ -10,8 +10,8 @@ import {
   InputImagem,
   Select,
   InputVideo,
-} from "../components/Form";
-import { set } from "../utils/local-storage";
+} from "../../components/Form";
+import { get, set } from "../../utils/local-storage";
 
 const _records = [
   {
@@ -31,15 +31,17 @@ const _records = [
   },
 ];
 
-
-
-export default function CreateExercise() {
+export default function CreateExercise({ params }) {
+  const { uuid } = use(params);
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
   const [images, setImages] = useState([]);
   const [video, setVideo] = useState("");
   const [description, setDescription] = useState("");
   const [muscles, setMuscles] = useState([]);
+  const [kg, setKg] =useState('')
+  const [repeat, setRepeat] =useState('')
+
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
@@ -51,8 +53,11 @@ export default function CreateExercise() {
       video,
       description,
       muscles,
+      kg,
+      repeat
     }
-    set('exercises', obj)
+    
+    set('exercises', obj, uuid)
     setName("")
     setImages([])
     setVideo("")
@@ -60,8 +65,23 @@ export default function CreateExercise() {
     setMuscles([])
   };
 
+  useEffect(() => {
+    if (uuid) {
+      const exercises = get("exercises") || [];
+      const exerciceCurrent = exercises.find((exercise) => exercise.uuid === uuid);
+
+      if (exerciceCurrent) {
+        setName(exerciceCurrent.name);
+        setImages(exerciceCurrent.images);
+        setVideo(exerciceCurrent.video);
+        setDescription(exerciceCurrent.description);
+        setMuscles(exerciceCurrent.muscles);
+      }
+    }
+  }, [uuid]);
 
   return (
+    <Suspense>
     <div className="flex flex-col h-screen">
       <div
         id="Top-Flutuante"
@@ -137,10 +157,27 @@ export default function CreateExercise() {
                 setMuscles={setMuscles}
               />
             </div>
+            <div className='flex flex-row justify-between'>
+            <Input
+                name="Repetição"
+                id="titulo"
+                setText={setRepeat}
+                placeholder="Digite Repetição"
+                value={repeat}
+              />
+              <Input
+                name="Carga"
+                id="titulo"
+                setText={setKg}
+                placeholder="Digite a Carga"
+                value={kg}
+              />
+            </div>
           </Form>
         </div>
       </div>
       {isOpen && <SideBar toggleSidebar={toggleSidebar} />}
     </div>
+    </Suspense>
   );
 }

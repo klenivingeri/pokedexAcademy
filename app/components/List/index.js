@@ -18,6 +18,7 @@ const ContentModal = ({
   const handleSetImage = (props) => {
     setIsImage(props);
   };
+  console.log(video)
   return (
     <div>
       {isImage ? (
@@ -79,7 +80,7 @@ export const ListLine = (props) => {
     setShowImage(isImage);
     setShowModal(!showModal);
   };
-
+  console.log('asdas',props.uuid)
   return (
     <div className="grid grid-cols-12 mb-2 bg-white rounded-md m-2 shadow-sm">
       <div
@@ -112,7 +113,7 @@ export const ListLine = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={name} onClose={handlerModal}>
+        <Modal title={name} uuid={props.uuid} onClose={handlerModal}>
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}
@@ -124,7 +125,7 @@ export const ListSquare = (props) => {
   const { name, images, repeat, muscle, kg } = props;
   const [showImage, setShowImage] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+ 
   const handlerModal = (isImage = true) => {
     setShowImage(isImage);
     setShowModal(!showModal);
@@ -152,7 +153,7 @@ export const ListSquare = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={name} onClose={handlerModal}>
+        <Modal title={name} uuid={props.uuid} onClose={handlerModal}>
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}
