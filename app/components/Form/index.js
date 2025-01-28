@@ -248,10 +248,72 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
   );
 };
 
-export const Form = ({ children , createExercise}) => {
+
+export const SelectExercise = ({ name, setExercises, exercises, options=[] }) => {
+
+  const [selected, setSelected] = useState([]);
+  const handleSaveSelected = () => {
+    const exe = options.find(op => op.name === selected)
+    console.log(exe)
+    const updatedExercise = [...exercises, exe];
+    setExercises(updatedExercise);
+  };
+
+  const handleDeleteMuscle = (uuid) => {
+    const newArray = exercises.filter((_exe, i) => _exe.uuid !== uuid);
+    setExercises(newArray);
+  };
+
+  return (
+    <div className="">
+      {!!exercises?.length && (
+        <div className="border rounded-sm p-1 flex flex-wrap">
+          {exercises.map((_exer, i) => (
+            <div
+              onClick={() => handleDeleteMuscle(_exer.uuid)}
+              key={i}
+              className="text-sm border rounded-md p-[2px] m-[2px] flex flex-row gap-2 items-center"
+            >
+              <div>{_exer.name}</div>
+              <div>
+                <IconCircleClose />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      <label
+        htmlFor="message"
+        className="block text-sm font-medium text-gray-700"
+      >
+        {name}
+        <div className="flex flex-row items-center gap-2 ">
+          <select
+            onChange={(e) => setSelected(e.target.value)}
+            className="mt-1 block w-full rounded-md border pl-1 h-[35px] border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+          >
+            {options.map((exer, i) => (
+              <option key={i} value={exer.name}>
+                {exer.name}
+              </option>
+            ))}
+          </select>
+          <a
+            onClick={handleSaveSelected}
+            className="bg-blue-600 text-white py-2 px-4 mt-1 rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          >
+            save
+          </a>
+        </div>
+      </label>
+    </div>
+  );
+};
+
+export const Form = ({ children , create}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    createExercise()
+    create()
   };
   return (
     <form  method="POST" className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">

@@ -40,14 +40,14 @@ export const SideBar = ({toggleSidebar}) => (
               Importar
             </Link>
             <Link
-              href="/create-exercise"
+              href="/create-exercise/create"
               className="text-black hover:text-blue-500 w-full text-left flex gap-2 "
             >
               <IconCreate />
               Criar exercicio
             </Link>
             <Link
-              href="/create-exercise"
+              href="/create-training/create"
               className="text-black hover:text-blue-500 w-full text-left flex gap-2 "
             >
               <IconCreate />

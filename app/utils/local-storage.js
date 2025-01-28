@@ -13,11 +13,11 @@ export const get = (key) => {
   return data?.data || []
 }
 
-export const set = (key, value, uuid = '') => {
+export const set = (key, value, uuid) => {
   const payload = get(key)
   let data;
-
-  if(!uuid?.length){
+  
+  if(uuid.length < 10){
     value.uuid = uuidv4()
     data = payload
     data.push(value)
@@ -27,13 +27,12 @@ export const set = (key, value, uuid = '') => {
         value.uuid = uuid
         return value
       }
+      return exer
     } )
   }
+  console.log(data)
 
-  
-
-
-  localStorage.setItem(key, JSON.stringify({data: data}));
+ localStorage.setItem(key, JSON.stringify({data: data}));
 }
 
 

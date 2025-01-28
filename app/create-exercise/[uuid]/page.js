@@ -13,23 +13,6 @@ import {
 } from "../../components/Form";
 import { get, set } from "../../utils/local-storage";
 
-const _records = [
-  {
-    name: "Seated Cable Row - V Grip (Cable)",
-    images: [
-      "https://academiafitboxx.com.br/wp-content/uploads/2021/08/Treino-funcional-13-exercicios-fundamentais-3.png",
-      "https://www.blog.nadarte.com/wp-content/uploads/2020/04/original-a5e663c386ee5dd5dd89601488a2b9f5.jpeg",
-      "https://th.bing.com/th/id/OIP.CzWMagHlTeJeAmzknb7KvgHaE8?rs=1&pid=ImgDetMain",
-      ,
-    ],
-    video: ["zottydOvmMw"],
-    description:
-      "o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
-    repeat: 15,
-    muscle: ["Peito"],
-    kg: 14,
-  },
-];
 
 export default function CreateExercise({ params }) {
   const { uuid } = use(params);
@@ -58,15 +41,17 @@ export default function CreateExercise({ params }) {
     }
     
     set('exercises', obj, uuid)
-    setName("")
-    setImages([])
-    setVideo("")
-    setDescription("")
-    setMuscles([])
+    // setName("")
+    // setImages([])
+    // setVideo("")
+    // setDescription("")
+    // setMuscles([])
+    // setKg('')
+    // setRepeat('')
   };
 
   useEffect(() => {
-    if (uuid) {
+    if (uuid.length > 10) {
       const exercises = get("exercises") || [];
       const exerciceCurrent = exercises.find((exercise) => exercise.uuid === uuid);
 
@@ -76,6 +61,8 @@ export default function CreateExercise({ params }) {
         setVideo(exerciceCurrent.video);
         setDescription(exerciceCurrent.description);
         setMuscles(exerciceCurrent.muscles);
+        setKg(exerciceCurrent.kg)
+        setRepeat(exerciceCurrent.repeat)
       }
     }
   }, [uuid]);
@@ -108,7 +95,7 @@ export default function CreateExercise({ params }) {
 
       <div className="flex-grow bg-gray-100 py-[50px] text-neutral-800">
         <div className="bg-white m-2">
-          <Form method="POST" createExercise={createExercise}>
+          <Form method="POST" create={createExercise}>
             <div className="flex flex-col gap-4">
               <Input
                 name="Nome do Exercicio"

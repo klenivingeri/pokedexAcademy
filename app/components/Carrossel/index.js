@@ -19,14 +19,14 @@ export const Carrossel = ({ images }) => {
   };
 
   return images.length === 1 
-  ? (<BgImage image={images[0]} size="h-[200px]" />)
+  ? (<img src={images[0]} className="w-full max-h-[400px]" />)
   : (
     <div className="relative w-full">
       <div className="overflow-hidden rounded-lg">
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex}`}
-          className="w-full h-[200px] object-cover transition-transform duration-300 ease-in-out"
+          className="w-full max-h-[400px] object-cover transition-transform duration-300 ease-in-out"
         />
       </div>
 
