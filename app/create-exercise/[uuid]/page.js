@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { useState, useEffect, Suspense, use } from "react";
 import { MenuHamburger } from "../../components/icons/MenuHamburger";
 import { SideBar } from "../../components/SideBar";
@@ -13,8 +13,8 @@ import {
 } from "../../components/Form";
 import { get, set } from "../../utils/local-storage";
 
-
 export default function CreateExercise({ params }) {
+  const router = useRouter();
   const { uuid } = use(params);
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
@@ -41,6 +41,8 @@ export default function CreateExercise({ params }) {
     }
     
     set('exercises', obj, uuid)
+    alert('Exercício Salvo')
+    router.push("/");
     // setName("")
     // setImages([])
     // setVideo("")
@@ -64,6 +66,7 @@ export default function CreateExercise({ params }) {
         setKg(exerciceCurrent.kg)
         setRepeat(exerciceCurrent.repeat)
       }
+      console.log('aaaaa',exerciceCurrent.muscles)
     }
   }, [uuid]);
 

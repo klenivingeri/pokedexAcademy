@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BgImage } from "../BgImage";
 import { IconBack } from "../icons/IconBack";
 import { IconNext } from "../icons/IconNext";
 
@@ -45,7 +44,6 @@ export const Carrossel = ({ images }) => {
         
       </button>
 
-      {/* Dots Indicator */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {images.map((_, index) => (
           <button

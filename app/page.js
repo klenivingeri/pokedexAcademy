@@ -53,7 +53,7 @@ export default function Listing() {
               className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-black"
             >
               <option value="" disabled>
-                Selecione um item
+                Selecione um Treino
               </option>
               {recordsTraining.map((record, i) => (
                 <option key={i} value={record.uuid}>
@@ -97,7 +97,7 @@ export default function Listing() {
                   })}
                 </div>
               </div>
-            ) : (
+            ) : recordsTraining.length ? (
               recordsTraining.map((record) => {
                 if (record.uuid == selectedValue) {
                   return record.exercises.map((uuid, i) => (
@@ -108,7 +108,7 @@ export default function Listing() {
                   )));
                 }
               })
-            )}
+            ) : (<div className="h-[300px] flex items-end justify-center text-gray-400 text-4xl"> Selecione um Treino</div>) }
           </div>
         )}
       </div>

@@ -14,7 +14,7 @@ const exercicio = [
     description: "",
     repeat: 12,
     sets: 4,
-    muscle: ["Peito"],
+    muscles: ["Peito"],
     kg: 14,
   },
   {
@@ -27,7 +27,7 @@ const exercicio = [
     description: "1. Deitar em um banco inclinado e segurar os dois halteres com os braços estendidos   2. Flexionar os braços e descer de forma controlada até os cotovelos estarem um pouco mais abaixo que a linha dos ombros. 3. Estender os braços novamente até a posição inicial.",
     repeat: 12,
     sets: 3,
-    muscle: ["Peito"],
+    muscles: ["Peito"],
     kg: 14,
   },
   {
@@ -41,7 +41,7 @@ const exercicio = [
     description: "",
     repeat: 15,
     sets: 3,
-    muscle: ["Peito"],
+    muscles: ["Peito"],
     kg: 14,
   },
   {
@@ -54,7 +54,7 @@ const exercicio = [
     description: "",
     repeat: 15,
     sets: 3,
-    muscle: ["Tríceps"],
+    muscles: ["Tríceps"],
     kg: 14,
   },
   {
@@ -67,7 +67,7 @@ const exercicio = [
     description: "",
     repeat: 12,
     sets: 3,
-    muscle: ["Tríceps"],
+    muscles: ["Tríceps"],
     kg: 14,
   },
   {
@@ -80,7 +80,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 4,
-    muscle: ["Tríceps"],
+    muscles: ["Tríceps"],
     kg: 14,
   },
   {
@@ -93,7 +93,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 4,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -107,7 +107,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 4,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -120,7 +120,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -133,7 +133,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -147,7 +147,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -160,7 +160,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Costas"],
+    muscles: ["Costas"],
     kg: 14,
   },
   {
@@ -173,7 +173,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 14,
     sets: 4,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -186,7 +186,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 4,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -199,7 +199,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -213,7 +213,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -227,7 +227,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 20,
     sets: 4,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -241,7 +241,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Pernas"],
+    muscles: ["Pernas"],
     kg: 14,
   },
   {
@@ -254,7 +254,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 4,
-    muscle: ["Ombros"],
+    muscles: ["Ombros"],
     kg: 14,
   },
   {
@@ -267,7 +267,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Ombros"],
+    muscles: ["Ombros"],
     kg: 14,
   },
   {
@@ -280,7 +280,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 3,
-    muscle: ["Ombros"],
+    muscles: ["Ombros"],
     kg: 14,
   },
   {
@@ -294,7 +294,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Ombros"],
+    muscles: ["Ombros"],
     kg: 14,
   },
   {
@@ -307,7 +307,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 15,
     sets: 4,
-    muscle: ["Ombros"],
+    muscles: ["Ombros"],
     kg: 14,
   },
   {
@@ -321,7 +321,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Abdômen"],
+    muscles: ["Abdômen"],
     kg: 14,
   },
   {
@@ -334,7 +334,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Abdômen"],
+    muscles: ["Abdômen"],
     kg: 14,
   },
   {
@@ -347,7 +347,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Abdômen"],
+    muscles: ["Abdômen"],
     kg: 14,
   },
   {
@@ -360,7 +360,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Abdômen"],
+    muscles: ["Abdômen"],
     kg: 14,
   },
   {
@@ -373,7 +373,7 @@ const exercicio = [
     description: "Até a falha",
     repeat: 12,
     sets: 3,
-    muscle: ["Abdômen"],
+    muscles: ["Abdômen"],
     kg: 14,
   },
 ];

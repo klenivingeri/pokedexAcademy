@@ -8,7 +8,7 @@ import { BgImage } from "../BgImage";
 const ContentModal = ({
   images,
   repeat,
-  muscle,
+  muscles,
   kg,
   description,
   video,
@@ -18,7 +18,7 @@ const ContentModal = ({
   const handleSetImage = (props) => {
     setIsImage(props);
   };
-  console.log(video)
+
   return (
     <div>
       {isImage ? (
@@ -62,10 +62,10 @@ const ContentModal = ({
         <div className="my-2 h-48 overflow-y-auto p-2 border rounded-md bg-gray-100">
           {description}
         </div>
-        <div className="text-sm flex justify-end">
-          <div className=" border px-2 pt-1 rounded-md border-neutral-300 shadow-sm items-center">
+        <div className="text-sm flex justify-end gap-2">
+          {muscles.map((muscle, i) => <div key={i} className=" border px-2 pt-1 rounded-md border-neutral-300 shadow-sm items-center">
             {muscle}
-          </div>
+          </div>)}
         </div>
       </div>
     </div>
@@ -73,7 +73,7 @@ const ContentModal = ({
 };
 
 export const ListLine = (props) => {
-  const { name, images, repeat, muscle, kg } = props;
+  const { name, images, repeat, muscles, kg } = props;
   const [showModal, setShowModal] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const handlerModal = (isImage = true) => {
@@ -102,7 +102,10 @@ export const ListLine = (props) => {
         <div className="text-sm">
           <b>Carga:</b> {kg}kg
         </div>
-        <div className="text-sm"><b>Ativa:</b> {muscle}</div>
+        <div
+          className="text-sm block w-full overflow-hidden text-ellipsis whitespace-nowrap"
+          style={{ textOverflow: "ellipsis" }}
+        ><b>Ativa: </b> {muscles?.join(', ')}</div>
       </div>
 
       <div
@@ -123,7 +126,7 @@ export const ListLine = (props) => {
 
 export const ListSquare = (props) => {
   console.log(props)
-  const { name, images, repeat, muscle, kg } = props;
+  const { name, images} = props;
   const [showImage, setShowImage] = useState(false);
   const [showModal, setShowModal] = useState(false);
  

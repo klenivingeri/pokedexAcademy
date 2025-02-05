@@ -32,9 +32,8 @@ export const set = (key, value, uuid) => {
   }
   console.log(data)
 
- localStorage.setItem(key, JSON.stringify({data: data}));
+  localStorage.setItem(key, JSON.stringify({data: data}));
 }
-
 
 export const del = (key) => {
   localStorage.removeItem(key);
