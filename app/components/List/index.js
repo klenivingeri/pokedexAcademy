@@ -4,7 +4,6 @@ import { Modal } from "../Modal";
 import { Carrossel } from "../Carrossel";
 import { BgImage } from "../BgImage";
 
-
 const ContentModal = ({
   images,
   repeat,
@@ -63,9 +62,14 @@ const ContentModal = ({
           {description}
         </div>
         <div className="text-sm flex justify-end gap-2">
-          {muscles.map((muscle, i) => <div key={i} className=" border px-2 pt-1 rounded-md border-neutral-300 shadow-sm items-center">
-            {muscle}
-          </div>)}
+          {muscles.map((muscle, i) => (
+            <div
+              key={i}
+              className=" border px-2 pt-1 rounded-md border-neutral-300 shadow-sm items-center"
+            >
+              {muscle}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -105,7 +109,9 @@ export const ListLine = (props) => {
         <div
           className="text-sm block w-full overflow-hidden text-ellipsis whitespace-nowrap"
           style={{ textOverflow: "ellipsis" }}
-        ><b>Ativa: </b> {muscles?.join(', ')}</div>
+        >
+          <b>Ativa: </b> {muscles?.join(", ")}
+        </div>
       </div>
 
       <div
@@ -116,7 +122,12 @@ export const ListLine = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={name} uuid={props.uuid} onClose={handlerModal}>
+        <Modal
+          title={name}
+          uuid={props.uuid}
+          selectedMenu={props.selectedMenu}
+          onClose={handlerModal}
+        >
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}
@@ -125,11 +136,10 @@ export const ListLine = (props) => {
 };
 
 export const ListSquare = (props) => {
-  console.log(props)
-  const { name, images} = props;
+  const { name, images } = props;
   const [showImage, setShowImage] = useState(false);
   const [showModal, setShowModal] = useState(false);
- 
+
   const handlerModal = (isImage = true) => {
     setShowImage(isImage);
     setShowModal(!showModal);
@@ -157,7 +167,12 @@ export const ListSquare = (props) => {
       </div>
 
       {showModal && (
-        <Modal title={name} uuid={props.uuid} onClose={handlerModal}>
+        <Modal
+          title={name}
+          uuid={props.uuid}
+          selectedMenu={props.selectedMenu}
+          onClose={handlerModal}
+        >
           <ContentModal {...props} showImage={showImage} />
         </Modal>
       )}

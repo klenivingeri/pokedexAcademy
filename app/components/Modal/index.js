@@ -2,7 +2,7 @@ import Link from "next/link";
 import { IconEdit } from "../icons/IconEdit";
 import { IconClose } from "../icons/IconsClose";
 
-export const Modal = ({ title, onClose, children, uuid }) => {
+export const Modal = ({ title, onClose, children, uuid, selectedMenu }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div
@@ -10,7 +10,9 @@ export const Modal = ({ title, onClose, children, uuid }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center px-4 py-2">
-          <Link href={`/create-exercise/${uuid}`}><IconEdit /></Link>
+          <Link href={`/create-exercise/${uuid}?select=${selectedMenu}`}>
+            <IconEdit />
+          </Link>
           <div className="flex w-full justify-between items-center border-b ml-2">
             <h3 className="text-xl font-semibold">{title}</h3>
             <button

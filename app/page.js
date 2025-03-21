@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Loading } from "./components/Loading";
 import { MenuHamburger } from "./components/icons/MenuHamburger";
 import { IconList } from "./components/icons/IconList";
@@ -9,9 +9,10 @@ import { ListSquare, ListLine } from "./components/List";
 import { add, get } from "./utils/local-storage";
 import { SideBar } from "./components/SideBar";
 
-export default function Listing() {
+export default function Listing({ searchParams }) {
+  const { select = "" } = use(searchParams);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedValue, setSelectedValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(select);
   const [isSquare, setIsSquare] = useState(false);
   const [recordsTraining, setRecordsTraining] = useState([]);
   const [recordsExercises, setRecordsExercises] = useState([]);
@@ -31,7 +32,7 @@ export default function Listing() {
     const dataExercises = get("exercises");
     if (!!dataTraining && !!dataExercises) {
       setRecordsTraining(dataTraining);
-      setRecordsExercises(dataExercises)
+      setRecordsExercises(dataExercises);
     }
     setIsLoading(false);
   }, []);
@@ -87,12 +88,18 @@ export default function Listing() {
                 <div className="flex flex-wrap justify-center">
                   {recordsTraining.map((record) => {
                     if (record.uuid == selectedValue) {
-                      return record.exercises.map((uuid, i) => (
-                        recordsExercises.map(exercise => {
-                          if(exercise.uuid === uuid)
-                          return <ListSquare key={uuid} {...exercise} />
-                        }
-                      )))
+                      return record.exercises.map((uuid, i) =>
+                        recordsExercises.map((exercise) => {
+                          if (exercise.uuid === uuid)
+                            return (
+                              <ListSquare
+                                key={uuid}
+                                {...exercise}
+                                selectedMenu={selectedValue}
+                              />
+                            );
+                        })
+                      );
                     }
                   })}
                 </div>
@@ -100,15 +107,25 @@ export default function Listing() {
             ) : recordsTraining.length ? (
               recordsTraining.map((record) => {
                 if (record.uuid == selectedValue) {
-                  return record.exercises.map((uuid, i) => (
-                    recordsExercises.map(exercise => {
-                      if(exercise.uuid === uuid)
-                        return <ListLine key={uuid} {...exercise} />
-                    }
-                  )));
+                  return record.exercises.map((uuid, i) =>
+                    recordsExercises.map((exercise) => {
+                      if (exercise.uuid === uuid)
+                        return (
+                          <ListLine
+                            key={uuid}
+                            {...exercise}
+                            selectedMenu={selectedValue}
+                          />
+                        );
+                    })
+                  );
                 }
               })
-            ) : (<div className="h-[300px] flex items-end justify-center text-gray-400 text-4xl"> Selecione um Treino</div>) }
+            ) : (
+              <div className="h-[300px] flex items-end justify-center text-gray-400 text-4xl">
+                Selecione um Treino
+              </div>
+            )}
           </div>
         )}
       </div>

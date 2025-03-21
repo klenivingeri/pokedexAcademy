@@ -69,7 +69,7 @@ const musculos = [
   "Transverso do abdômen",
 ];
 
-export const Input = ({ name, id, setText, placeholder, value}) => {
+export const Input = ({ name, id, setText, placeholder, value }) => {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
@@ -90,13 +90,13 @@ export const Input = ({ name, id, setText, placeholder, value}) => {
 
 export const InputVideo = ({ name, id, setUrl, placeholder, value }) => {
   const onChangeUrl = (url) => {
-    const match  = url.match(/^(?:[^\/]*\/){3}([^?]+)/)
-    if(!!match){
-      setUrl(match[1])
+    const match = url.match(/^(?:[^\/]*\/){3}([^?]+)/);
+    if (!!match) {
+      setUrl(match[1]);
     } else {
-      setUrl(url)
+      setUrl(url);
     }
-  }
+  };
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
@@ -121,7 +121,7 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
   const handleSaveImagem = () => {
     if (img.trim() === "") return;
     const updatedImages = images;
-    updatedImages.push(img)
+    updatedImages.push(img);
     setImage(updatedImages);
     setImg("");
   };
@@ -133,15 +133,19 @@ export const InputImagem = ({ name, id, images, setImage, placeholder }) => {
 
   return (
     <div>
-        {!!images.length && (
-          <div className="border rounded-sm p-1 flex-wrap flex flex-row gap-2">
-            {images.map((url, i) => (
-              <div key={i} className="shadow-sm " onClick={() => handleDeleteImage(url)}>
-                <BgImage image={url} size={"w-16 h-16"} showIcon />
-              </div>
-            ))}
-          </div>
-        )}
+      {!!images.length && (
+        <div className="border rounded-sm p-1 flex-wrap flex flex-row gap-2">
+          {images.map((url, i) => (
+            <div
+              key={i}
+              className="shadow-sm "
+              onClick={() => handleDeleteImage(url)}
+            >
+              <BgImage image={url} size={"w-16 h-16"} showIcon />
+            </div>
+          ))}
+        </div>
+      )}
       <label htmlFor={id} className="block text-sm font-medium text-gray-700">
         {name}
       </label>
@@ -248,13 +252,15 @@ export const Select = ({ name, setMuscles, muscles, options }) => {
   );
 };
 
-
-export const SelectExercise = ({ name, setExercises, exercises, options=[] }) => {
-
+export const SelectExercise = ({
+  name,
+  setExercises,
+  exercises,
+  options = [],
+}) => {
   const [selected, setSelected] = useState([]);
   const handleSaveSelected = () => {
-    const exe = options.find(op => op.name === selected)
-    console.log(exe)
+    const exe = options.find((op) => op.name === selected);
     const updatedExercise = [...exercises, exe];
     setExercises(updatedExercise);
   };
@@ -310,13 +316,16 @@ export const SelectExercise = ({ name, setExercises, exercises, options=[] }) =>
   );
 };
 
-export const Form = ({ children , create}) => {
+export const Form = ({ children, create }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    create()
+    create();
   };
   return (
-    <form  method="POST" className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
+    <form
+      method="POST"
+      className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg space-y-4"
+    >
       {children}
       <button
         type="submit"
